@@ -1,0 +1,48 @@
+
+
+<mat-card class="example-card">
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image">
+            <span class="material-icons">
+                account_balance
+                </span>
+        </div>
+        <mat-card-title>{{AccountTypeName}}</mat-card-title>
+        <mat-card-subtitle>{{AccountNumber}}</mat-card-subtitle>
+    </mat-card-header>
+    <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+    <mat-card-content>
+      <h1>
+        {{AvailableAmount | currency:'$ '}}
+      </h1>
+    </mat-card-content>
+    <mat-card-actions class="d-flex justify-content-end">
+
+        <!-- <button color="warn"  mat-button>
+            <span class="material-icons">
+                share
+            </span>
+        </button> -->
+        <button matTooltip="Abonar" (click)="openAddFundDialog()"  mat-button><span class="material-icons">
+                add_circle_outline
+            </span>
+        </button>
+
+        <button  matTooltip="Retirar" (click)="openAddFundDialog(2)"  mat-button><span class="material-icons">
+            <span class="material-icons">
+                local_atm
+                </span>
+        </span>
+    </button>
+        <button matTooltip="Transferir Saldo" (click)="openTransferFundDialog()"  mat-button>
+            <span class="material-icons">
+                send
+            </span>
+        </button>
+        <!-- <button  mat-button>
+            <span class="material-icons">
+                list
+                </span>
+        </button> -->
+    </mat-card-actions>
+</mat-card>

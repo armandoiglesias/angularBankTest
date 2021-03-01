@@ -1,0 +1,73 @@
+<div class="d-flex justify-content-center">
+    
+
+<mat-card >
+
+    <mat-card-content style="width: 300px;">
+
+    <h2>Registro de Cliente</h2>
+
+    <form [formGroup]="fb" >
+
+                <div class="example-container">
+                    <mat-form-field appearance="" class="width-100">
+                        <mat-label>Nombre Completo</mat-label>
+                        <input formControlName="fullName" matInput>
+                        <mat-error>
+                            Ingrese su nombre completo
+                          </mat-error>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field appearance="" class="width-100">
+                        <mat-label>Rut</mat-label>
+                        <input formControlName="rut" name="rut"  validateRut matInput>
+                        <mat-error>
+                            Rut no válido
+                          </mat-error>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field appearance="" class="width-100">
+                        <mat-label>Correo Electronico</mat-label>
+                        <input formControlName="email" type="email" matInput placeholder="Ej. correo@correo.com">
+                        <mat-error>
+                            Direccion de correo electrónico no válida
+                          </mat-error>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field appearance="" class="width-100">
+                        <mat-label>Contraseña</mat-label>
+                        <input formControlName="pwd" matInput [type]="hide ? 'password' : 'text'">
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                            [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                        <mat-hint>
+                            Ingrese una contraseña que sea facil de recordar
+                        </mat-hint>
+                        <mat-error>
+                            Ingrese una contraseña valida
+                          </mat-error>
+                    </mat-form-field>
+                    <br>
+                    <br>
+                    <div class="d-flex justify-content-center">
+                        <button [disabled]="!fb.valid" (click)="addCustomer()" mat-raised-button color="primary">Registrar</button>
+                    </div>
+                    <br>
+                    <div style="padding: 15px;" class="d-flex justify-content-center">
+                        <a mat-button [routerLink]="['/login']" >Ir a Login</a>
+    
+                    </div>
+                </div>
+            
+    </form>
+    </mat-card-content>
+
+</mat-card>
+
+</div>
+
+
+
+
+

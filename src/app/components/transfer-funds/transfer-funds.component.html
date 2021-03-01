@@ -1,0 +1,41 @@
+<div class="d-flex justify-content-center">
+
+  <form [formGroup]="form">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image">
+          <span class="material-icons">
+            send
+          </span>
+        </div>
+        <mat-card-title>Transferencia de Fondos</mat-card-title>
+        <mat-card-subtitle>{{ accountType }} - Saldo Disponible <b> {{ availableAmount | currency: '$ ' }} </b>
+        </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+
+
+        <mat-form-field appearance="fill">
+          <mat-label>Seleccione Destinatario</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let _dest of dest" [value]="_dest.id">
+              {{_dest.FullName}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Monto a Transferir</mat-label>
+          <input matInput type="number" formControlName="amount" [placeholder]="availableAmount">
+          <mat-hint>Monto Maximo a transferir<strong> {{ availableAmount | currency: '$ ' }}</strong> </mat-hint>
+        </mat-form-field>
+
+
+      </mat-card-content>
+      <mat-card-actions class="d-flex justify-content-around">
+        <button (click)="close()" mat-button>Cancelar</button>
+        <button [disabled]="!form.valid" mat-button>Aceptar</button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</div>

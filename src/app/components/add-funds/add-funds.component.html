@@ -1,0 +1,38 @@
+<div class="d-flex justify-content-center">
+
+    <form [formGroup]="form">
+    <mat-card>
+        <mat-card-header>
+          <div mat-card-avatar></div>
+          <mat-card-title *ngIf="data.movementTypeId == 1">Abono a Cuenta</mat-card-title>
+          <mat-card-title *ngIf="data.movementTypeId == 2">Retiro de Fondos</mat-card-title>
+          <mat-card-subtitle></mat-card-subtitle>
+        </mat-card-header>
+        <!-- <div mat-card-image></div> -->
+        <mat-card-content>
+            <!-- <mat-slider thumbLabel tickInterval="1" min="1" max="2000000" step="100" (change)="changed($event)" value="1000"></mat-slider> -->
+            <mat-form-field appearance="fill">
+                <mat-label>Amount</mat-label>
+                <input min="0" max="" matInput type="number" formControlName="amount" [(ngModel)]="amount" class="example-right-align">
+                <span matPrefix>$&nbsp;</span>
+                <!-- <span matSuffix>.00</span> -->
+              </mat-form-field>
+            <h6 *ngIf="data.movementTypeId == 1">Monto Abono <strong> {{ amount | currency:'$ ' }}</strong></h6>
+            <h6 *ngIf="data.movementTypeId == 2">Monto retiro <strong> {{ amount | currency:'$ ' }}</strong></h6>
+        </mat-card-content> 
+        <mat-card-actions>
+            <div class="d-flex justify-content-around">
+                <button (click)="onNoClick()"  mat-button>Cancelar</button>
+                <button (click)="addFund()" [disabled]="!form.valid" mat-button>Aceptar</button>
+            </div>
+        </mat-card-actions>
+      </mat-card>
+    </form>
+</div>
+
+
+
+
+
+
+
